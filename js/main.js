@@ -47,7 +47,7 @@ $(function(){
 
 	if($(".HackCountdown").length) {
 
-		var rebillCountdown = new Countdown("2014/05/06 23:13:00", function(duration){
+		var rebillCountdown = new Countdown("2014/05/06 23:16:00", function(duration){
 			var text = "";
 			if(duration.years()) { text += duration.years() + " Year "; }
 
@@ -63,6 +63,7 @@ $(function(){
 			if(duration.minutes() == 1) { text += duration.minutes() + " Minute "; }
 			if(duration.minutes() > 1) { text += duration.minutes() + " Minutes "; }
 
+			if(duration.seconds() === 0) { text += "00 Second"; }
 			if(duration.seconds() == 1) { text += duration.seconds() + " Second"; }
 			if(duration.seconds() > 1) { text += duration.seconds() + " Seconds"; }
 
