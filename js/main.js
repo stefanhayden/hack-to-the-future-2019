@@ -43,46 +43,46 @@ var Countdown = (function(moment){
 
 
 
-// $(function(){	
+$(function(){	
 
-// 	if($(".HackCountdown").length) {
+	if($(".HackCountdown").length) {
 
-// 		var rebillCountdown = new Countdown("2014-07-17T12:00:00-05:00", function(duration){
-// 			var text = "";
-// 			if(duration.years()) { text += duration.years() + " Year "; }
+		var rebillCountdown = new Countdown("2014-07-17T12:00:00-05:00", function(duration){
+			var text = "";
+			if(duration.years()) { text += duration.years() + " Year "; }
 
-// 			if(duration.months() == 1) { text += duration.months() + " Month "; }
-// 			if(duration.months() > 1) { text += duration.months() + " Months "; }
+			if(duration.months() == 1) { text += duration.months() + " Month "; }
+			if(duration.months() > 1) { text += duration.months() + " Months "; }
 
-// 			if(duration.days() == 1) { text += duration.days() + " Day "; }
-// 			if(duration.days() > 1) { text += duration.days() + " Days "; }
+			if(duration.days() == 1) { text += duration.days() + " Day "; }
+			if(duration.days() > 1) { text += duration.days() + " Days "; }
 
-// 			if(duration.hours() == 1) { text += duration.hours() + ":"; }
-// 			if(duration.hours() > 1) { text += duration.hours() + ":"; }
+			if(duration.hours() == 1) { text += duration.hours() + ":"; }
+			if(duration.hours() > 1) { text += duration.hours() + ":"; }
 
-// 			if(duration.minutes() == 1) { text += duration.minutes() + ":"; }
-// 			if(duration.minutes() > 1) { text += duration.minutes() + ":"; }
+			if(duration.minutes() == 1) { text += duration.minutes() + ":"; }
+			if(duration.minutes() > 1) { text += duration.minutes() + ":"; }
 
-// 			if(duration.seconds() === 0) { text += "00"; } else {
-// 				text += duration.seconds();
-// 			}
+			if(duration.seconds() === 0) { text += "00"; } else {
+				text += duration.seconds();
+			}
 			
-// 			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0) {
-// 				$(".HackCountdown").remove();
-// 			}
+			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0) {
+				$(".HackCountdown").remove();
+			}
 
-// 			$('.HackCountdown').text($("<span>"+text+"</span>").text())
-// 		});
-// 		$(".HackCountdown").show();
-// 	}
+			$('.HackCountdown').text($("<span>"+text+"</span>").text())
+		});
+		$(".HackCountdown").show();
+	}
 
-// });
+});
 
 $(function(){	
 
 	if($(".HackFinalCountdown").length) {
 
-		var HackFinalCountdown = new Countdown("2014-05-15T12:00:00-05:00", function(duration){
+		var HackFinalCountdown = new Countdown("2014-05-15T11:00:00-05:00", function(duration){
 			var text = "";
 			if(duration.years()) { text += duration.years() + " Year "; }
 
