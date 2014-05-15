@@ -16,7 +16,7 @@ var Countdown = (function(moment){
 		var start = moment().unix();
 		var end = moment(end).unix();
 		var diffTime = end - start;
-		var interval = 10;
+		var interval = 1;
 
 		this.duration = moment.duration(diffTime*interval, 'milliseconds');
 
@@ -93,7 +93,7 @@ $(function(){
 			// if(duration.days() > 1) { text += duration.days() + " Days "; }
 
 
-			if (duration.hours() < 10) {
+			if (duration.hours() < 10 && duration.hours() > 0) {
 				text += "0"+duration.hours() + ":";
 			} else {
 				text += duration.hours() + ":";
@@ -113,8 +113,9 @@ $(function(){
 				text += duration.seconds() + ":";
 			}
 
-			if(duration.milliseconds() === 0) { text += "000"; } 
-			else if (duration.milliseconds() < 10) {
+			if(duration.milliseconds() === 0) { 
+				text += "000"; 
+			} else if (duration.milliseconds() < 10) {
 				text += "00"+duration.milliseconds();
 			} else if (duration.milliseconds() < 100) {
 				text += "0"+duration.milliseconds();
