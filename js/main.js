@@ -92,10 +92,25 @@ $(function(){
 			// if(duration.days() == 1) { text += duration.days() + " Day "; }
 			// if(duration.days() > 1) { text += duration.days() + " Days "; }
 
-			text += duration.hours() + ":"; 
-			text += duration.minutes() + ":"; 
 
-			if(duration.seconds() === 0) { text += "00:"; } else {
+			if(duration.hours() === 0) { text += "00:"; 
+			} else if (duration.hours() < 10) {
+				text += "0"+duration.hours() + ":";
+			} else {
+				text += duration.hours() + ":";
+			}
+
+			if(duration.minutes() === 0) { text += "00:"; 
+			} else if (duration.minutes() < 10) {
+				text += "0"+duration.minutes() + ":";
+			} else {
+				text += duration.minutes() + ":";
+			}
+
+			if(duration.seconds() === 0) { text += "00:"; 
+			} else if (duration.seconds() < 10) {
+				text += "0"+duration.seconds() + ":";
+			} else {
 				text += duration.seconds() + ":";
 			}
 
