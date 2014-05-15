@@ -48,6 +48,7 @@ $(function(){
 	if($(".HackCountdown").length) {
 
 		var rebillCountdown = new Countdown("2014-07-17T12:00:00-05:00", function(duration){
+			alert(1)
 			var text = "";
 			if(duration.years()) { text += duration.years() + " Year "; }
 
@@ -83,6 +84,7 @@ $(function(){
 	if($(".HackFinalCountdown").length) {
 
 		var HackFinalCountdown = new Countdown("2014-07-18T12:00:00-05:00", function(duration){
+			alert(2)
 			var text = "";
 			// if(duration.years()) { text += duration.years() + " Year "; }
 
