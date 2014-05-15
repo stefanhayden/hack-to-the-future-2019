@@ -110,7 +110,7 @@ $(function(){
 			}
 
 			if(duration.seconds() === 0 && duration.minutes() === 0 && duration.hours() === 0) { 
-			else if(duration.seconds() === 0) { 
+			} else if(duration.seconds() === 0) { 
 				text += "00:"; 
 			} else if (duration.seconds() < 10) {
 				text += "0"+duration.seconds() + ":";
