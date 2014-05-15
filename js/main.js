@@ -82,7 +82,7 @@ $(function(){
 
 	if($(".HackFinalCountdown").length) {
 
-		var rebillCountdown = new Countdown("2014-04-14T24:00:00-05:00", function(duration){
+		var HackFinalCountdown = new Countdown("2014-04-14T24:00:00-05:00", function(duration){
 			var text = "";
 			if(duration.years()) { text += duration.years() + " Year "; }
 
