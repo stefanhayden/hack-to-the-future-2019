@@ -50,7 +50,7 @@ $(function(){
 		var rebillCountdown = new Countdown("2014-07-17T12:00:00-05:00", function(duration){
 			var text = "";
 			if(duration.years()) { text += duration.years() + " Year "; }
-
+text += duration.months()+" Months?:"
 			if(duration.months() == 1) { text += duration.months() + " Month "; }
 			if(duration.months() > 1) { text += duration.months() + " Months "; }
 
