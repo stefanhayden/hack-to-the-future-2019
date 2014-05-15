@@ -119,16 +119,23 @@ $(function(){
 				text += duration.seconds() + ":";
 			}
 
+			var mill;
 			if(duration.milliseconds() === 0) { 
-				text += "000"; 
+				mill += "000"; 
 			} else if (duration.milliseconds() < 10) {
-				text += "00"+duration.milliseconds();
+				mill += "00"+duration.milliseconds();
 			} else if (duration.milliseconds() < 100) {
-				text += "0"+duration.milliseconds();
+				mill += "0"+duration.milliseconds();
 			} else {
-				text += duration.milliseconds();
+				mill += duration.milliseconds();
 
 			}
+
+			var min = 11;
+			var max = 99;
+			// and the formula is:
+			var random = Math.floor(Math.random() * (max - min + 1)) + min;
+			text += mill[0]+random;
 			
 			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0) {
 				$(".HackFinalCountdown").remove();
