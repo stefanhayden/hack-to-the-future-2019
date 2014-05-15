@@ -50,22 +50,26 @@ $(function(){
 		var rebillCountdown = new Countdown("2014-07-17T12:00:00-05:00", function(duration){
 			var text = "";
 			if(duration.years()) { text += duration.years() + " Year "; }
-text += duration.months()+" Months?:"
+
 			if(duration.months() == 1) { text += duration.months() + " Month "; }
-			if(duration.months() > 1) { text += duration.months() + " Months "; }
+			else if(duration.months() > 1) { text += duration.months() + " Months "; }
 
-			if(duration.days() == 1) { text += duration.days() + " Day "; }
-			if(duration.days() > 1) { text += duration.days() + " Days "; }
+			if(duration.days() == 0) {  }
+			else if(duration.days() == 1) { text += duration.days() + " Day "; }
+			else if(duration.days() < 10) { text += "0"+duration.days() + " Days "; }
+			else if(duration.days() >= 10) { text += duration.days() + " Days "; }
 
-			if(duration.hours() == 1) { text += duration.hours() + ":"; }
-			if(duration.hours() > 1) { text += duration.hours() + ":"; }
+			if(duration.hours() == 0) { text += "00:"; }
+			else if(duration.hours() < 10) { text += "0"+duration.hours() + ":"; }
+			else if(duration.hours() >= 10) { text += duration.hours() + ":"; }
 
-			if(duration.minutes() == 1) { text += duration.minutes() + ":"; }
-			if(duration.minutes() > 1) { text += duration.minutes() + ":"; }
+			else if(duration.minutes() == 0) { text += "00:"; }
+			else if(duration.minutes() < 10) { text += "0"+duration.minutes() + ":"; }
+			else if(duration.minutes() >= 10) { text += duration.minutes() + ":"; }
 
-			if(duration.seconds() === 0) { text += "00"; } else {
-				text += duration.seconds();
-			}
+			if(duration.seconds() === 0) {  text += "00"; } 
+			else if (duration.seconds() < 10) { text += "0"+duration.seconds(); } 
+			else if (duration.seconds() >= 10) { text += duration.seconds(); }
 			
 			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0) {
 				$(".HackCountdown").remove();
@@ -78,72 +82,72 @@ text += duration.months()+" Months?:"
 
 });
 
-// $(function(){	
+$(function(){	
 
-// 	if($(".HackFinalCountdown").length) {
+	if($(".HackFinalCountdown").length) {
 
-// 		var HackFinalCountdown = new Countdown("2014-07-18T12:00:00-05:00", function(duration){
-// 			var text = "";
-// 			// if(duration.years()) { text += duration.years() + " Year "; }
+		var HackFinalCountdown = new Countdown("2014-07-18T12:00:00-05:00", function(duration){
+			var text = "";
+			// if(duration.years()) { text += duration.years() + " Year "; }
 
-// 			// if(duration.months() == 1) { text += duration.months() + " Month "; }
-// 			// if(duration.months() > 1) { text += duration.months() + " Months "; }
+			// if(duration.months() == 1) { text += duration.months() + " Month "; }
+			// if(duration.months() > 1) { text += duration.months() + " Months "; }
 
-// 			// if(duration.days() == 1) { text += duration.days() + " Day "; }
-// 			// if(duration.days() > 1) { text += duration.days() + " Days "; }
+			// if(duration.days() == 1) { text += duration.days() + " Day "; }
+			// if(duration.days() > 1) { text += duration.days() + " Days "; }
 
-// 			if (duration.hours() === 0) {
+			if (duration.hours() === 0) {
 
-// 			} else if (duration.hours() < 10) {
-// 				text += "0"+duration.hours() + ":";
-// 			} else {
-// 				text += duration.hours() + ":";
-// 			}
+			} else if (duration.hours() < 10) {
+				text += "0"+duration.hours() + ":";
+			} else {
+				text += duration.hours() + ":";
+			}
 
-// 			if(duration.minutes() === 0 && duration.hours() === 0) {
+			if(duration.minutes() === 0 && duration.hours() === 0) {
 
-// 			} else if(duration.minutes() === 0) { 
-// 				text += "00:"; 
-// 			} else if (duration.minutes() < 10) {
-// 				text += "0"+duration.minutes() + ":";
-// 			} else {
-// 				text += duration.minutes() + ":";
-// 			}
+			} else if(duration.minutes() === 0) { 
+				text += "00:"; 
+			} else if (duration.minutes() < 10) {
+				text += "0"+duration.minutes() + ":";
+			} else {
+				text += duration.minutes() + ":";
+			}
 
-// 			if(duration.seconds() === 0 && duration.minutes() === 0 && duration.hours() === 0) { 
-// 			} else if(duration.seconds() === 0) { 
-// 				text += "00:"; 
-// 			} else if (duration.seconds() < 10) {
-// 				text += "0"+duration.seconds() + ":";
-// 			} else {
-// 				text += duration.seconds() + ":";
-// 			}
+			if(duration.seconds() === 0 && duration.minutes() === 0 && duration.hours() === 0) { 
+			} else if(duration.seconds() === 0) { 
+				text += "00:"; 
+			} else if (duration.seconds() < 10) {
+				text += "0"+duration.seconds() + ":";
+			} else {
+				text += duration.seconds() + ":";
+			}
 
-// 			var mill;
-// 			if(duration.milliseconds() === 0) { 
-// 				mill = "000"; 
-// 			} else if (duration.milliseconds() < 10) {
-// 				mill = "00"+duration.milliseconds();
-// 			} else if (duration.milliseconds() < 100) {
-// 				mill = "0"+duration.milliseconds();
-// 			} else {
-// 				mill = duration.milliseconds();
+			var mill;
+			if(duration.milliseconds() === 0) { 
+				mill = "000"; 
+			} else if (duration.milliseconds() < 10) {
+				mill = "00"+duration.milliseconds();
+			} else if (duration.milliseconds() < 100) {
+				mill = "0"+duration.milliseconds();
+			} else {
+				mill = duration.milliseconds();
 
-// 			}
+			}
 
-// 			var min = 11;
-// 			var max = 99;
-// 			// and the formula is:
-// 			var random = Math.floor(Math.random() * (max - min + 1)) + min;
-// 			text += mill.toString()[0]+random.toString();
+			var min = 11;
+			var max = 99;
+			// and the formula is:
+			var random = Math.floor(Math.random() * (max - min + 1)) + min;
+			text += mill.toString()[0]+random.toString();
 			
-// 			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0) {
-// 				$(".HackFinalCountdown").remove();
-// 			}
+			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0) {
+				$(".HackFinalCountdown").remove();
+			}
 
-// 			$('.HackFinalCountdown').text($("<span>"+text+"</span>").text())
-// 		});
-// 		$(".HackFinalCountdown").show();
-// 	}
+			$('.HackFinalCountdown').text($("<span>"+text+"</span>").text())
+		});
+		$(".HackFinalCountdown").show();
+	}
 
-// });
+});
