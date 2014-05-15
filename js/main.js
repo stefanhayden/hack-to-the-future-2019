@@ -95,8 +95,8 @@ $(function(){
 			text += duration.hours() + ":"; 
 			text += duration.minutes() + ":"; 
 
-			if(duration.seconds() === 0) { text += "00"; } else {
-				text += duration.seconds();
+			if(duration.seconds() === 0) { text += "00:"; } else {
+				text += duration.seconds() + ":";
 			}
 			text += duration.milliseconds();
 			
