@@ -102,7 +102,7 @@ $(function(){
 			if(duration.milliseconds() === 0) { text += "000"; } 
 			else if (duration.milliseconds() < 10) {
 				text += "00"+duration.milliseconds();
-			else if (duration.milliseconds() < 100) {
+			} else if (duration.milliseconds() < 100) {
 				text += "0"+duration.milliseconds();
 			} else {
 				text += duration.milliseconds();
