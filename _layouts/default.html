@@ -30,17 +30,17 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Hack to the Future</a>
+          <a class="navbar-brand" href="./">Hack to the Future</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/registration.html">Team Registration</a></li>
+            <li  class="{% if page.menu_registration %} active {% endif %}"><a href="./registration.html">Team Registration</a></li>
             <li class="{% if page.menu_faq %} active {% endif %}"><a href="./faq.html">FAQ</a></li>
-            <li><a href="/location.html">Demo Location</a></li>
+            <li class="{% if page.menu_location %} active {% endif %}"><a href="./location.html">Demo Location</a></li>
             <!-- <li><a href="#demoLocation">Schedual</a></li> -->
             <!-- <li><a href="#demoLocation">Judging Criteria</a></li> -->
             <!-- <li><a href="#demoLocation">Hack Ideas</a></li> -->
-            <li><a href="/hackademy.html">Hackademy</a></li>
+            <li class="{% if page.menu_hackademy %} active {% endif %}"><a href="./hackademy.html">Hackademy</a></li>
 
 
             <!-- <li class="dropdown">
