@@ -59,9 +59,9 @@ $(function(){
 			else if(duration.days() < 10) { text += "0"+duration.days() + " Days "; }
 			else if(duration.days() >= 10) { text += duration.days() + " Days "; }
 
-			if(duration.hours() == 0) { text += "00:"; }
-			else if(duration.hours() < 10) { text += "0"+duration.hours() + ":"; }
-			else if(duration.hours() >= 10) { text += duration.hours() + ":"; }
+			if(duration.hours() == 0) { text += "00h:"; }
+			else if(duration.hours() < 10) { text += "0"+duration.hours() + "h:"; }
+			else if(duration.hours() >= 10) { text += duration.hours() + "h:"; }
 
 			else if(duration.minutes() == 0) { text += "00:"; }
 			else if(duration.minutes() < 10) { text += "0"+duration.minutes() + ":"; }
