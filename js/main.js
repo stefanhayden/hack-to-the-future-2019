@@ -16,14 +16,14 @@ var Countdown = (function(moment){
 		var start = moment().unix();
 		var end = moment(end).unix();
 		var diffTime = end - start;
-		var interval = 1000;
+		var interval = 100;
 
 		this.duration = moment.duration(diffTime*interval, 'milliseconds');
 
 		$(function(){ callback.call(this, instance.duration); });
 		this.timer = setInterval(function(){
 			instance.tick(interval, callback);
-		},1000);
+		},interval);
 
 		this.tick = function(interval, callback) {
 
