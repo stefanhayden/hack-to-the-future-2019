@@ -95,37 +95,38 @@ $(function(){
 			if (duration.hours() === 0) {
 
 			} else if (duration.hours() < 10) {
-				text += "0"+duration.hours() + ":";
+				text += "0"+duration.hours() + "h:";
 			} else {
-				text += duration.hours() + ":";
+				text += duration.hours() + "h:";
 			}
 
 			if(duration.minutes() === 0 && duration.hours() === 0) {
 
-			} else if(duration.minutes() === 0) { text += "00:"; 
+			} else if(duration.minutes() === 0) { 
+				text += "00m:"; 
 			} else if (duration.minutes() < 10) {
-				text += "0"+duration.minutes() + ":";
+				text += "0"+duration.minutes() + "m:";
 			} else {
-				text += duration.minutes() + ":";
+				text += duration.minutes() + "m:";
 			}
 
 			if(duration.seconds() === 0 && duration.minutes() === 0 && duration.hours() === 0) { 
 			} else if(duration.seconds() === 0) { 
-				text += "00:"; 
+				text += "00s:"; 
 			} else if (duration.seconds() < 10) {
-				text += "0"+duration.seconds() + ":";
+				text += "0"+duration.seconds() + "s:";
 			} else {
-				text += duration.seconds() + ":";
+				text += duration.seconds() + "s:";
 			}
 
 			if(duration.milliseconds() === 0) { 
-				text += "000"; 
+				text += "000m"; 
 			} else if (duration.milliseconds() < 10) {
-				text += "00"+duration.milliseconds();
+				text += "00"+duration.milliseconds() +"m";
 			} else if (duration.milliseconds() < 100) {
-				text += "0"+duration.milliseconds();
+				text += "0"+duration.milliseconds() +"m";
 			} else {
-				text += duration.milliseconds();
+				text += duration.milliseconds() +"m";
 
 			}
 			
