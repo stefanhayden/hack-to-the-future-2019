@@ -16,7 +16,7 @@ var Countdown = (function(moment){
 		var start = moment().unix();
 		var end = moment(end).unix();
 		var diffTime = end - start;
-		var interval = 10;
+		var interval = 100;
 
 		this.duration = moment.duration(diffTime*interval, 'milliseconds');
 
