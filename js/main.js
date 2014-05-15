@@ -57,16 +57,16 @@ $(function(){
 			if(duration.days() == 1) { text += duration.days() + " Day "; }
 			if(duration.days() > 1) { text += duration.days() + " Days "; }
 
-			if(duration.hours() == 1) { text += duration.hours() + " Hour "; }
-			if(duration.hours() > 1) { text += duration.hours() + " Hours "; }
+			if(duration.hours() == 1) { text += duration.hours() + ":"; }
+			if(duration.hours() > 1) { text += duration.hours() + ":"; }
 
-			if(duration.minutes() == 1) { text += duration.minutes() + " Minute "; }
-			if(duration.minutes() > 1) { text += duration.minutes() + " Minutes "; }
+			if(duration.minutes() == 1) { text += duration.minutes() + ":"; }
+			if(duration.minutes() > 1) { text += duration.minutes() + ":"; }
 
-			if(duration.seconds() === 0) { text += "00 Second"; }
-			if(duration.seconds() == 1) { text += duration.seconds() + " Second"; }
-			if(duration.seconds() > 1) { text += duration.seconds() + " Seconds"; }
-
+			if(duration.seconds() === 0) { text += "00"; } else {
+				text += duration.seconds();
+			}
+			
 			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0) {
 				$(".HackCountdown").remove();
 			}
