@@ -38,7 +38,7 @@ var Countdown = (function(moment){
 
 	}
 
-	return new clock;
+	return clock;
 })(moment);
 
 
