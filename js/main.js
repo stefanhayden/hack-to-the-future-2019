@@ -98,7 +98,10 @@ $(function(){
 			if(duration.seconds() === 0) { text += "00:"; } else {
 				text += duration.seconds() + ":";
 			}
-			text += duration.milliseconds();
+
+			if(duration.milliseconds() === 0) { text += "000"; } else {
+				text += duration.milliseconds();
+			}
 			
 			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0) {
 				$(".HackFinalCountdown").remove();
