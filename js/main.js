@@ -142,7 +142,6 @@ $(function(){
 
 			$('.HackFinalCountdown').text($("<span>"+text+"</span>").text())
 		});
-		$(".HackFinalCountdown").show();
 	}
 
 });
