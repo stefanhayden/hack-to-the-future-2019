@@ -56,8 +56,7 @@ $(function(){
 
 			if(duration.days() == 0) {  }
 			else if(duration.days() == 1) { text += duration.days() + " Day "; }
-			else if(duration.days() < 10) { text += "0"+duration.days() + " Days "; }
-			else if(duration.days() >= 10) { text += duration.days() + " Days "; }
+			else if(duration.days() > 1) { text += duration.days() + " Days "; }
 
 			if(duration.hours() == 0) { text += "00:"; }
 			else if(duration.hours() < 10) { text += "0"+duration.hours() + ":"; }
@@ -73,6 +72,7 @@ $(function(){
 			
 			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0) {
 				$(".HackCountdown").remove();
+				$(".HackFinalCountdown").show();
 			}
 
 			$('.HackCountdown').text($("<span>"+text+"</span>").text())
@@ -88,13 +88,6 @@ $(function(){
 
 		var HackFinalCountdown = new Countdown("2014-07-18T12:00:00-05:00", function(duration){
 			var text = "";
-			// if(duration.years()) { text += duration.years() + " Year "; }
-
-			// if(duration.months() == 1) { text += duration.months() + " Month "; }
-			// if(duration.months() > 1) { text += duration.months() + " Months "; }
-
-			// if(duration.days() == 1) { text += duration.days() + " Day "; }
-			// if(duration.days() > 1) { text += duration.days() + " Days "; }
 
 			if (duration.hours() === 0) {
 
@@ -135,6 +128,8 @@ $(function(){
 
 			}
 
+			// call back only happens once per second
+			// so this will make it seem like once a millisecond
 			var min = 11;
 			var max = 99;
 			// and the formula is:
