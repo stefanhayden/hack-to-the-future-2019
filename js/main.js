@@ -18,7 +18,7 @@ var Countdown = (function(moment){
 		var diffTime = end - start;
 		var interval = 100;
 
-		this.duration = moment.duration(diffTime*interval, 'milliseconds');
+		this.duration = moment.duration(diffTime*1000, 'milliseconds');
 
 		$(function(){ callback.call(this, instance.duration); });
 		this.timer = setInterval(function(){
