@@ -93,8 +93,7 @@ $(function(){
 			// if(duration.days() > 1) { text += duration.days() + " Days "; }
 
 
-			if(duration.hours() === 0) { text += "00:"; 
-			} else if (duration.hours() < 10) {
+			if (duration.hours() < 10) {
 				text += "0"+duration.hours() + ":";
 			} else {
 				text += duration.hours() + ":";
