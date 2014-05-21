@@ -47,7 +47,7 @@ $(function(){
 
 	if($(".HackCountdown").length) {
 
-		var rebillCountdown = new Countdown("2014-07-17T12:00:00-04:00", function(duration){
+		var rebillCountdown = new Countdown($(".HackCountdown").data("time"), function(duration){
 			var text = "";
 			if(duration.years()) { text += duration.years() + " Year "; }
 
@@ -86,43 +86,43 @@ $(function(){
 
 	if($(".HackFinalCountdown").length) {
 
-		var HackFinalCountdown = new Countdown("2014-07-18T12:00:00-04:00", function(duration){
+		var HackFinalCountdown = new Countdown($(".HackFinalCountdown").data("time"), function(duration){
 			var text = "";
 
 			if (duration.hours() === 0) {
 
 			} else if (duration.hours() < 10) {
-				text += "0"+duration.hours() + ":";
+				text += "<span class='hours'>0"+duration.hours() + "</span>:";
 			} else {
-				text += duration.hours() + ":";
+				text += "<span class='hours'>" + duration.hours() + "</span>:";
 			}
 
 			if(duration.minutes() === 0 && duration.hours() === 0) {
 
 			} else if(duration.minutes() === 0) { 
-				text += "00:"; 
+				text += "<span class='minutes'>00</span>:"; 
 			} else if (duration.minutes() < 10) {
-				text += "0"+duration.minutes() + ":";
+				text += "<span class='minutes'>0"+duration.minutes() + "</span>:";
 			} else {
-				text += duration.minutes() + ":";
+				text += "<span class='minutes'>" + duration.minutes() + "</span>:";
 			}
 
 			if(duration.seconds() === 0 && duration.minutes() === 0 && duration.hours() === 0) { 
 			} else if(duration.seconds() === 0) { 
-				text += "00:"; 
+				text += "<span class='seconds'>00</span>:"; 
 			} else if (duration.seconds() < 10) {
-				text += "0"+duration.seconds() + ":";
+				text += "<span class='seconds'>0"+duration.seconds() + "</span>:";
 			} else {
-				text += duration.seconds() + ":";
+				text += "<span class='seconds'>" + duration.seconds() + "</span>:";
 			}
 
 			var mill;
 			if(duration.milliseconds() === 0) { 
-				mill = "000"; 
+				mill = "<span class='milliseconds'>000</span>"; 
 			} else if (duration.milliseconds() < 10) {
-				mill = "00"+duration.milliseconds();
+				mill = "<span class='milliseconds'>00"+duration.milliseconds()+"</span>";
 			} else if (duration.milliseconds() < 100) {
-				mill = "0"+duration.milliseconds();
+				mill = "<span class='milliseconds'>0"+duration.milliseconds()+"</span>";
 			} else {
 				mill = duration.milliseconds();
 
