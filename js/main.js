@@ -150,7 +150,7 @@ $(function(){
 		if($(".HackFinalCountdown").data("time")) {
 			hackEndTime = $(".HackFinalCountdown").data("time");
 		} else {
-			hackEndTime = (moment().valueOf() ) + 86430000;
+			hackEndTime = (moment().valueOf() ) + 86460000;
 		}
 
 		var toHackEnd = new Countdown(hackEndTime, function(duration){
