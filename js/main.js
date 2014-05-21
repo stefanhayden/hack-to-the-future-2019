@@ -18,22 +18,29 @@ var Countdown = (function(moment){
 		var diffTime = end - start;
 		var interval = 100;
 
-		this.duration = moment.duration(diffTime*1000, 'milliseconds');
+		this.duration = moment.duration(diffTime*1000 - interval, 'milliseconds');
 		this.last_duration = moment.duration(diffTime*1000, 'milliseconds');
 
-		$(function(){ callback.call(this, instance.duration, instance.last_duration); });
+		$(function(){ callback.call(this, instance.duration); });
 
 		this.timer = setInterval(function(){
-			instance.tick(interval, callback);
+			instance.tick(callback);
 		},interval);
 
-		this.tick = function(interval, callback) {
+		this.tick = function(callback) {
 
-			var newDuration = this.duration - interval
+			start = moment().unix();
+			diffTime = end - start;
+			interval = this.last_duration - this.duration;
 
-			this.last_duration = moment.duration(this.duration, 'milliseconds');
+			var newDuration = this.duration = moment.duration(diffTime*1000 - interval, 'milliseconds');
+			this.last_duration = moment.duration(diffTime*1000, 'milliseconds');
+
+			// var newDuration = this.duration - (this.last_duration - this.duration)
+
+			// this.last_duration = moment.duration(this.duration, 'milliseconds');
 			this.duration = moment.duration(newDuration, 'milliseconds');
-			callback.call(this, this.duration, this.last_duration);
+			callback.call(this, this.duration);
 			if(newDuration <= 0) {
 				clearInterval(this.timer);
 			}
