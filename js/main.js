@@ -13,13 +13,14 @@ var Countdown = (function(moment){
 	var clock = function(end, callback) {
 		var instance = this;
 
-		var start = moment().unix();
-		var end = moment(end).unix();
+		var start = moment().valueOf();
+		var end = moment(end).valueOf();
 		var diffTime = end - start;
 		var interval = 100;
 
-		this.duration = moment.duration(diffTime*1000 - interval, 'milliseconds');
-		this.last_duration = moment.duration(diffTime*1000, 'milliseconds');
+
+		this.duration = moment.duration(diffTime - interval);
+		this.last_duration = moment.duration(diffTime);
 
 		$(function(){ callback.call(this, instance.duration); });
 
@@ -29,17 +30,14 @@ var Countdown = (function(moment){
 
 		this.tick = function(callback) {
 
-			start = moment().unix();
+			start = moment().valueOf();
 			diffTime = end - start;
 			interval = this.last_duration - this.duration;
 
-			var newDuration = this.duration = moment.duration(diffTime*1000 - interval, 'milliseconds');
-			this.last_duration = moment.duration(diffTime*1000, 'milliseconds');
+			var newDuration =  moment.duration(diffTime - interval);
+			this.last_duration = moment.duration(diffTime);
+			this.duration = moment.duration(newDuration);
 
-			// var newDuration = this.duration - (this.last_duration - this.duration)
-
-			// this.last_duration = moment.duration(this.duration, 'milliseconds');
-			this.duration = moment.duration(newDuration, 'milliseconds');
 			callback.call(this, this.duration);
 			if(newDuration <= 0) {
 				clearInterval(this.timer);
@@ -74,10 +72,10 @@ $(function(){
 		if($(".HackCountdown").data("time")) { 
 			hackStartTime = $(".HackCountdown").data("time")
 		} else {
-			hackStartTime = (moment().unix() + 60) * 1000; 
+			hackStartTime = (moment().valueOf() + 60000); 
 		}
 
-		var toHackStart = new Countdown(hackStartTime, function(duration, last_duration){ 
+		var toHackStart = new Countdown(hackStartTime, function(duration){ 
 
 			var text = "";
 			if(duration.years()) { text += duration.years() + " Year "; }
@@ -102,7 +100,7 @@ $(function(){
 			else if (duration.seconds() >= 10) { text += duration.seconds(); }
 
 
-			if(duration.asSeconds() <= 60) {
+			if(duration.asSeconds().toFixed(1) <= 60) {
 
 				var mill;
 				if(duration.milliseconds() === 0) { 
@@ -131,10 +129,10 @@ $(function(){
 				$(".HackFinalCountdown").show();
 			}
 
-			if(duration.asSeconds() === 53) {
+			if(duration.asSeconds().toFixed(1) == 53) {
 				countDownSong.play();
 			}
-			if(duration.asSeconds() % 1 === 0 && duration.asSeconds() < 60*5) {
+			if(duration.asSeconds().toFixed(1) % 1 === 0 && duration.asSeconds().toFixed(1) < 60*5) {
 				countTick.play();
 			}
 			$('.HackCountdown').text($("<span>"+text+"</span>").text())
@@ -152,7 +150,7 @@ $(function(){
 		if($(".HackFinalCountdown").data("time")) {
 			hackEndTime = $(".HackFinalCountdown").data("time");
 		} else {
-			hackEndTime = (moment().unix() * 1000) + 86430000;
+			hackEndTime = (moment().valueOf() ) + 86430000;
 		}
 
 		var toHackEnd = new Countdown(hackEndTime, function(duration){
