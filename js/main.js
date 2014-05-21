@@ -19,8 +19,10 @@ var Countdown = (function(moment){
 		var interval = 100;
 
 		this.duration = moment.duration(diffTime*1000, 'milliseconds');
+		this.last_duration = moment.duration(diffTime*1000, 'milliseconds');
 
-		$(function(){ callback.call(this, instance.duration); });
+		$(function(){ callback.call(this, instance.duration, instance.last_duration); });
+
 		this.timer = setInterval(function(){
 			instance.tick(interval, callback);
 		},interval);
@@ -29,8 +31,9 @@ var Countdown = (function(moment){
 
 			var newDuration = this.duration - interval
 
+			this.last_duration = moment.duration(this.duration, 'milliseconds');
 			this.duration = moment.duration(newDuration, 'milliseconds');
-			callback.call(this, this.duration);
+			callback.call(this, this.duration, this.last_duration);
 			if(newDuration <= 0) {
 				clearInterval(this.timer);
 			}
@@ -41,13 +44,34 @@ var Countdown = (function(moment){
 	return clock;
 })(moment);
 
+var countDownSong = new Howl({
+  urls: ['files/hackathon.mp3'],
+  autoplay: false,
+  loop: false,
+  volume: 1,
+});
+var countTick = new Howl({
+  urls: ['files/multimedia_rollover_082.mp3'],
+  autoplay: false,
+  loop: false,
+  volume: 0.1,
+});
+
 
 
 $(function(){	
 
 	if($(".HackCountdown").length) {
+		var hackStartTime;
 
-		var rebillCountdown = new Countdown($(".HackCountdown").data("time"), function(duration){
+		if($(".HackCountdown").data("time")) { 
+			hackStartTime = $(".HackCountdown").data("time")
+		} else {
+			hackStartTime = (moment().unix() + 60) * 1000; 
+		}
+
+		var toHackStart = new Countdown(hackStartTime, function(duration, last_duration){ 
+
 			var text = "";
 			if(duration.years()) { text += duration.years() + " Year "; }
 
@@ -69,24 +93,62 @@ $(function(){
 			if(duration.seconds() === 0) {  text += "00"; } 
 			else if (duration.seconds() < 10) { text += "0"+duration.seconds(); } 
 			else if (duration.seconds() >= 10) { text += duration.seconds(); }
+
+
+			if(duration.asSeconds() <= 60) {
+
+				var mill;
+				if(duration.milliseconds() === 0) { 
+					mill = "000"; 
+				} else if (duration.milliseconds() < 10) {
+					mill = "00"+duration.milliseconds();
+				} else if (duration.milliseconds() < 100) {
+					mill = "0"+duration.milliseconds();
+				} else {
+					mill = duration.milliseconds();
+
+				}
+
+				// call back only happens once per second
+				// so this will make it seem like once a millisecond
+				var min = 11;
+				var max = 99;
+				// and the formula is:
+				var random = Math.floor(Math.random() * (max - min + 1)) + min;
+				text += ":"+mill.toString()[0]+random.toString();
+			}
+
 			
-			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0) {
+			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0 && duration.milliseconds() <= 0) {
 				$(".HackCountdown").remove();
 				$(".HackFinalCountdown").show();
 			}
 
+			if(duration.asSeconds() === 53) {
+				countDownSong.play();
+			}
+			if(duration.asSeconds() % 1 === 0 && duration.asSeconds() < 60*5) {
+				countTick.play();
+			}
 			$('.HackCountdown').text($("<span>"+text+"</span>").text())
 		});
 		$(".HackCountdown").show();
 	}
 
 });
-
+ 
 $(function(){	
 
 	if($(".HackFinalCountdown").length) {
+		var hackEndTime;
 
-		var HackFinalCountdown = new Countdown($(".HackFinalCountdown").data("time"), function(duration){
+		if($(".HackFinalCountdown").data("time")) {
+			hackEndTime = $(".HackFinalCountdown").data("time");
+		} else {
+			hackEndTime = (moment().unix() * 1000) + 86430000;
+		}
+
+		var toHackEnd = new Countdown(hackEndTime, function(duration){
 			var text = "";
 
 			if (duration.hours() === 0) {
@@ -118,11 +180,11 @@ $(function(){
 
 			var mill;
 			if(duration.milliseconds() === 0) { 
-				mill = "<span class='milliseconds'>000</span>"; 
+				mill = "000"; 
 			} else if (duration.milliseconds() < 10) {
-				mill = "<span class='milliseconds'>00"+duration.milliseconds()+"</span>";
+				mill = "00"+duration.milliseconds();
 			} else if (duration.milliseconds() < 100) {
-				mill = "<span class='milliseconds'>0"+duration.milliseconds()+"</span>";
+				mill = "0"+duration.milliseconds();
 			} else {
 				mill = duration.milliseconds();
 
@@ -134,9 +196,9 @@ $(function(){
 			var max = 99;
 			// and the formula is:
 			var random = Math.floor(Math.random() * (max - min + 1)) + min;
-			text += mill.toString()[0]+random.toString();
+			text += "<span class='milliseconds'>"+mill.toString()[0]+random.toString() + "</span>";
 			
-			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0) {
+			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0 && duration.milliseconds() <= 0) {
 				$(".HackFinalCountdown").remove();
 			}
 
