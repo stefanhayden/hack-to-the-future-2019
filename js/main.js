@@ -72,7 +72,7 @@ $(function(){
 		if($(".HackCountdown").data("time")) { 
 			hackStartTime = $(".HackCountdown").data("time")
 		} else {
-			hackStartTime = (moment().valueOf() + 10000); 
+			hackStartTime = (moment().valueOf() + 60000); 
 		}
 
 		var toHackStart = new Countdown(hackStartTime, function(duration){ 
@@ -133,10 +133,10 @@ $(function(){
 			}
 
 			if(duration.asSeconds().toFixed(1) == 53) {
-				//countDownSong.play();
+				countDownSong.play();
 			}
 			if(duration.asSeconds().toFixed(1) % 1 === 0 && duration.asSeconds().toFixed(1) < 60*5) {
-				//countTick.play();
+				countTick.play();
 			}
 			$('.HackCountdown').text($("<span>"+text+"</span>").text())
 		});
@@ -153,7 +153,7 @@ $(function(){
 		if($(".HackFinalCountdown").data("time")) {
 			hackEndTime = $(".HackFinalCountdown").data("time");
 		} else {
-			hackEndTime = (moment().valueOf() ) + 86410000;
+			hackEndTime = (moment().valueOf() ) + 86460000;
 		}
 
 		var toHackEnd = new Countdown(hackEndTime, function(duration){
