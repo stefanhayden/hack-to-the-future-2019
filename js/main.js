@@ -54,12 +54,14 @@ var countDownSong = new Howl({
   autoplay: false,
   loop: false,
   volume: 1,
+  buffer: true
 });
 var countTick = new Howl({
   urls: ['files/multimedia_rollover_082.mp3'],
   autoplay: false,
   loop: false,
   volume: 0.1,
+  buffer: true
 });
 
 
@@ -72,7 +74,7 @@ $(function(){
 		if(document.location.href.indexOf("?test") == -1) { 
 			hackStartTime = $(".HackCountdown").data("time")
 		} else {
-			hackStartTime = (moment().valueOf() + 10000); 
+			hackStartTime = (moment().valueOf() + 60000); 
 		}
 
 		var toHackStart = new Countdown(hackStartTime, function(duration){ 
@@ -159,7 +161,7 @@ $(function(){
 		if(document.location.href.indexOf("?test") == -1) {
 			hackEndTime = $(".HackFinalCountdown").data("time");
 		} else {
-			hackEndTime = (moment().valueOf() ) + 86410000;
+			hackEndTime = (moment().valueOf() ) + 86460000;
 		}
 
 		var toHackEnd = new Countdown(hackEndTime, function(duration){
