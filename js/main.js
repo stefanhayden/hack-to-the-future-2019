@@ -72,7 +72,7 @@ $(function(){
 		if(document.location.href.indexOf("?test") == -1) { 
 			hackStartTime = $(".HackCountdown").data("time")
 		} else {
-			hackStartTime = (moment().valueOf() + 60000); 
+			hackStartTime = (moment().valueOf() + 10000); 
 		}
 
 		var toHackStart = new Countdown(hackStartTime, function(duration){ 
@@ -129,14 +129,20 @@ $(function(){
 			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0 && duration.milliseconds() <= 0) {
 				
 				$(".HackCountdown").remove();
-				$(".HackFinalCountdown").show();
+				setTimeout(function(){ $(".hackstart").show(); },200)
+				setTimeout(function(){ $(".hackstart").hide(); },400)
+				setTimeout(function(){ $(".hackstart").show(); },600)
+				setTimeout(function(){ $(".hackstart").hide(); },800)
+				setTimeout(function(){ $(".hackstart").show(); },1000)
+				setTimeout(function(){ $(".hackstart").hide(); },1200)
+				setTimeout(function(){ $(".HackFinalCountdown").show(); },1400);
 			}
 
 			if(duration.asSeconds().toFixed(1) == 53) {
-				//countDownSong.play();
+				countDownSong.play();
 			}
 			if(duration.asSeconds().toFixed(1) % 1 === 0 && duration.asSeconds().toFixed(1) < 60*5) {
-				//countTick.play();
+				countTick.play();
 			}
 			$('.HackCountdown').text($("<span>"+text+"</span>").text())
 		});
@@ -153,7 +159,7 @@ $(function(){
 		if(document.location.href.indexOf("?test") == -1) {
 			hackEndTime = $(".HackFinalCountdown").data("time");
 		} else {
-			hackEndTime = (moment().valueOf() ) + 86460000;
+			hackEndTime = (moment().valueOf() ) + 86410000;
 		}
 
 		var toHackEnd = new Countdown(hackEndTime, function(duration){
