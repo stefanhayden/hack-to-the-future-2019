@@ -72,22 +72,25 @@ $(function(){
 		if($(".HackCountdown").data("time")) { 
 			hackStartTime = $(".HackCountdown").data("time")
 		} else {
-			hackStartTime = (moment().valueOf() + 60000); 
+			hackStartTime = (moment().valueOf() + 10000); 
 		}
 
 		var toHackStart = new Countdown(hackStartTime, function(duration){ 
 
 			var text = "";
-			if(duration.years()) { text += duration.years() + " Year "; }
+			//if(duration.years()) { text += duration.years() + " Year "; }
 
-			if(duration.months() == 1) { text += duration.months() + " Month "; }
-			else if(duration.months() > 1) { text += duration.months() + " Months "; }
+			// if(duration.months() == 1) { text += duration.months() + " Month "; }
+			// else if(duration.months() > 1) { text += duration.months() + " Months "; }
 
-			if(duration.days() == 0) {  }
-			else if(duration.days() == 1) { text += duration.days() + " Day "; }
-			else if(duration.days() > 1) { text += duration.days() + " Days "; }
+			// if(duration.days() == 0) {  }
+			// else if(duration.days() == 1) { text += duration.days() + " Day "; }
+			// else if(duration.days() > 1) { text += duration.days() + " Days "; }
 
-			if(duration.hours() == 0) { text += "00:"; }
+			if(duration.hours() == 0) { 
+			//text += "00:"; 
+				$(".HackCountdown").css("font-size","22vw")
+			}
 			else if(duration.hours() < 10) { text += "0"+duration.hours() + ":"; }
 			else if(duration.hours() >= 10) { text += duration.hours() + ":"; }
 
@@ -100,7 +103,6 @@ $(function(){
 			else if (duration.seconds() >= 10) { text += duration.seconds(); }
 
 
-			if(duration.asSeconds().toFixed(1) <= 60) {
 
 				var mill;
 				if(duration.milliseconds() === 0) { 
@@ -120,20 +122,21 @@ $(function(){
 				var max = 99;
 				// and the formula is:
 				var random = Math.floor(Math.random() * (max - min + 1)) + min;
-				text += ":"+mill.toString()[0]+random.toString();
-			}
+				text += ":"+(mill.toString()[0]+random.toString()).slice(0,2);
+			
 
 			
 			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0 && duration.milliseconds() <= 0) {
+				console.log(111)
 				$(".HackCountdown").remove();
 				$(".HackFinalCountdown").show();
 			}
 
 			if(duration.asSeconds().toFixed(1) == 53) {
-				countDownSong.play();
+				//countDownSong.play();
 			}
 			if(duration.asSeconds().toFixed(1) % 1 === 0 && duration.asSeconds().toFixed(1) < 60*5) {
-				countTick.play();
+				//countTick.play();
 			}
 			$('.HackCountdown').text($("<span>"+text+"</span>").text())
 		});
@@ -150,7 +153,7 @@ $(function(){
 		if($(".HackFinalCountdown").data("time")) {
 			hackEndTime = $(".HackFinalCountdown").data("time");
 		} else {
-			hackEndTime = (moment().valueOf() ) + 86460000;
+			hackEndTime = (moment().valueOf() ) + 86410000;
 		}
 
 		var toHackEnd = new Countdown(hackEndTime, function(duration){
@@ -201,7 +204,7 @@ $(function(){
 			var max = 99;
 			// and the formula is:
 			var random = Math.floor(Math.random() * (max - min + 1)) + min;
-			text += "<span class='milliseconds'>"+mill.toString()[0]+random.toString() + "</span>";
+			text += "<span class='milliseconds'>"+(mill.toString()[0]+random.toString()).slice(0,2) + "</span>";
 			
 			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0 && duration.milliseconds() <= 0) {
 				$(".HackFinalCountdown").remove();
