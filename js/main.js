@@ -69,7 +69,7 @@ $(function(){
 	if($(".HackCountdown").length) {
 		var hackStartTime;
 
-		if($(".HackCountdown").data("time")) { 
+		if(document.location.href.indexOf("?test") == -1) { 
 			hackStartTime = $(".HackCountdown").data("time")
 		} else {
 			hackStartTime = (moment().valueOf() + 60000); 
@@ -127,16 +127,16 @@ $(function(){
 
 			
 			if(duration.days() <= 0 && duration.hours() <= 0 && duration.minutes() <= 0 && duration.seconds() <= 0 && duration.milliseconds() <= 0) {
-				console.log(111)
+				
 				$(".HackCountdown").remove();
 				$(".HackFinalCountdown").show();
 			}
 
 			if(duration.asSeconds().toFixed(1) == 53) {
-				countDownSong.play();
+				//countDownSong.play();
 			}
 			if(duration.asSeconds().toFixed(1) % 1 === 0 && duration.asSeconds().toFixed(1) < 60*5) {
-				countTick.play();
+				//countTick.play();
 			}
 			$('.HackCountdown').text($("<span>"+text+"</span>").text())
 		});
@@ -150,7 +150,7 @@ $(function(){
 	if($(".HackFinalCountdown").length) {
 		var hackEndTime;
 
-		if($(".HackFinalCountdown").data("time")) {
+		if(document.location.href.indexOf("?test") == -1) {
 			hackEndTime = $(".HackFinalCountdown").data("time");
 		} else {
 			hackEndTime = (moment().valueOf() ) + 86460000;
