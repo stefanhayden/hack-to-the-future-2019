@@ -80,14 +80,14 @@ $(function(){
 		var toHackStart = new Countdown(hackStartTime, function(duration){ 
 
 			var text = "";
-			//if(duration.years()) { text += duration.years() + " Year "; }
+			if(duration.years()) { text += duration.years() + " Year "; }
 
-			// if(duration.months() == 1) { text += duration.months() + " Month "; }
-			// else if(duration.months() > 1) { text += duration.months() + " Months "; }
+			if(duration.months() == 1) { text += duration.months() + " Month "; }
+			else if(duration.months() > 1) { text += duration.months() + " Months "; }
 
-			// if(duration.days() == 0) {  }
-			// else if(duration.days() == 1) { text += duration.days() + " Day "; }
-			// else if(duration.days() > 1) { text += duration.days() + " Days "; }
+			if(duration.days() == 0) {  }
+			else if(duration.days() == 1) { text += duration.days() + " Day "; }
+			else if(duration.days() > 1) { text += duration.days() + " Days "; }
 
 			if(duration.hours() == 0) { 
 			//text += "00:"; 
