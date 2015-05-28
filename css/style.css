@@ -6,7 +6,7 @@
 }
 
 
-@media (min-width: 768px ) { 
+@media (min-width: 768px ) and (max-width: 991px ) { 
 
 	.jumbotron h1 {
 		color:#333;
