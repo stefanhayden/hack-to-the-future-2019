@@ -88,7 +88,7 @@ $(function(){
 
 			if(duration.asDays() == 0) {  }
 			else if(duration.asDays() == 1) { text += duration.asDays() + " Day "; }
-			else if(duration.asDays() > 1) { text += duration.asDays()) + " Days "; }
+			else if(duration.asDays() > 1) { text += duration.asDays() + " Days "; }
 
 			if(duration.hours() == 0) { 
 			//text += "00:"; 
