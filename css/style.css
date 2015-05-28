@@ -6,7 +6,13 @@
 }
 
 
-@media (min-width: @screen-md-min) { 
+@media (min-width: 768px ) { 
+
+	.jumbotron h1 {
+		color:#333;
+	}
+ }
+@media (min-width: 992px) { 
 	.jumbotron h1 {
 		color:#333;
 	}
