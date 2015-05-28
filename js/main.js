@@ -85,10 +85,10 @@ $(function(){
 			// if(duration.months() == 1) { text += duration.months() + " Month "; }
 			// else if(duration.months() > 1) { text += duration.months() + " Months "; }
 
-			var days = ((duration.months()+1)*30 + duration.days());
-			if(days == 0) {  }
-			else if(days == 1) { text += duration.days() + " Day "; }
-			else if(days > 1) { text += days + " Days "; }
+
+			if(duration.asDays() == 0) {  }
+			else if(duration.asDays() == 1) { text += duration.asDays() + " Day "; }
+			else if(duration.asDays() > 1) { text += duration.asDays()) + " Days "; }
 
 			if(duration.hours() == 0) { 
 			//text += "00:"; 
