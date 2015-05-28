@@ -11,9 +11,12 @@
 	.jumbotron h1 {
 		color:#333;
 	}
- }
-@media (min-width: 992px) { 
-	.jumbotron h1 {
+	.jumbotron p {
 		color:#333;
 	}
  }
+/*@media (min-width: 992px) { 
+	.jumbotron h1 {
+		color:#333;
+	}
+ }*/
