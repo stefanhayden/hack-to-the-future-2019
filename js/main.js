@@ -82,12 +82,13 @@ $(function(){
 			var text = "";
 			if(duration.years()) { text += duration.years() + " Year "; }
 
-			if(duration.months() == 1) { text += duration.months() + " Month "; }
-			else if(duration.months() > 1) { text += duration.months() + " Months "; }
+			// if(duration.months() == 1) { text += duration.months() + " Month "; }
+			// else if(duration.months() > 1) { text += duration.months() + " Months "; }
 
-			if(duration.days() == 0) {  }
-			else if(duration.days() == 1) { text += duration.days() + " Day "; }
-			else if(duration.days() > 1) { text += duration.days() + " Days "; }
+			var days = ((duration.months()+1)*30 + duration.days());
+			if(days == 0) {  }
+			else if(days == 1) { text += duration.days() + " Day "; }
+			else if(days > 1) { text += days + " Days "; }
 
 			if(duration.hours() == 0) { 
 			//text += "00:"; 
