@@ -5,6 +5,10 @@
 	color:#fff;
 	font-family: 'Roboto Mono';
 }
+.jumbotron h1 {
+	font-weight:300;
+	text-shadow:4px 7px 11px #000;
+}
 
 
 @media (min-width: 768px ) and (max-width: 991px ) { 
