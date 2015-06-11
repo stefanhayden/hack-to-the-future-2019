@@ -32,15 +32,15 @@
  h1.HackCountdown {
 	font-size:100px;
 	font-weight:100;
-	text-shadow:5px 4px 11px #000;
 	font-family: 'Roboto Mono';
+	margin-top:0px;
 }
  h1.HackFinalCountdown {
 	font-weight:100;
-	text-shadow:5px 4px 11px #000;
 	font-size:150px;
 	display:none;
 	font-family: 'Roboto Mono';
+	margin-top:0px;
 }
 
 
