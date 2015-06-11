@@ -15,7 +15,15 @@
 	font-family: 'Roboto Mono';
 	font-weight:100;
 	text-shadow:5px 4px 11px #000;
-	
+
+}
+
+.jumbotron h1.HackCountdown {
+	font-size:100px;
+}
+.jumbotron h1.HackFinalCountdown {
+	font-size:150px;
+	display:none;
 }
 
 
@@ -23,9 +31,18 @@
 
 	.jumbotron h1 {
 		color:#333;
+		font-size:63px;
 	}
 	.jumbotron p {
 		color:#333;
+	}
+
+	.jumbotron h1.HackCountdown {
+		font-size:60px;
+	}
+	.jumbotron h1.HackFinalCountdown {
+		font-size:60px;
+		display:none;
 	}
  }
 /*@media (min-width: 992px) { 
