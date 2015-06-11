@@ -125,7 +125,7 @@ $(function(){
 				var max = 99;
 				// and the formula is:
 				var random = Math.floor(Math.random() * (max - min + 1)) + min;
-				text += ":"+(mill.toString()[0]+random.toString()).slice(0,2);
+				//text += ":"+(mill.toString()[0]+random.toString()).slice(0,2);
 			
 
 			
