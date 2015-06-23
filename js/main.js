@@ -92,7 +92,7 @@ $(function(){
 
 			if(duration.hours() == 0) { 
 			//text += "00:"; 
-				$(".HackCountdown").css("font-size","22vw")
+			//	$(".HackCountdown").css("font-size","22vw")
 			}
 			else if(duration.hours() < 10) { text += "0"+duration.hours() + ":"; }
 			else if(duration.hours() >= 10) { text += duration.hours() + ":"; }
