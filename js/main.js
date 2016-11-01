@@ -86,7 +86,7 @@ $(function(){
 			// else if(duration.months() > 1) { text += duration.months() + " Months "; }
 
 			var days = Math.floor(duration.asDays());
-			if(days == 0) {  }
+			if(true || days == 0) {  }
 			else if(days == 1) { text += days + " Day "; }
 			else if(days > 1) { text += days + " Days "; }
 
