@@ -49,22 +49,6 @@ var Countdown = (function(moment){
 	return clock;
 })(moment);
 
-var countDownSong = new Howl({
-  urls: ['files/hackathon.mp3'],
-  autoplay: false,
-  loop: false,
-  volume: 1,
-  buffer: true
-});
-var countTick = new Howl({
-  urls: ['files/multimedia_rollover_082.mp3'],
-  autoplay: false,
-  loop: false,
-  volume: 0.1,
-  buffer: true
-});
-
-
 
 $(function(){	
 
@@ -141,12 +125,7 @@ $(function(){
 				setTimeout(function(){ $(".HackFinalCountdown").show(); },1400);
 			}
 
-			if(duration.asSeconds().toFixed(1) == 53) {
-				countDownSong.play();
-			}
-			if(duration.asSeconds().toFixed(1) % 1 === 0 && duration.asSeconds().toFixed(1) < 60*5) {
-				countTick.play();
-			}
+
 			$('.HackCountdown').text($("<span>"+text+"</span>").text())
 		});
 		$(".HackCountdown").show();
