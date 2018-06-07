@@ -1,4 +1,7 @@
 
+.btn-primary {
+	color: red;
+}
 
 .jumbotron {
 	background:#FFF url('/img/header.jpg') center 50px repeat-x;
