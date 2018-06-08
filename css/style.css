@@ -9,13 +9,13 @@
 	background:#FFF url('/img/httf_2018-lp_hero.jpg') center 50px repeat-x;
 	background-size: auto 466px;
 	color:#fff;
-	font-family: 'frank';
-	letter-spacing: 5px;
+	font-family: 'DIN Next LT Pro';
+	letter-spacing: 2px;
 }
 
 .jumbotron p.dates {
 	font-size:33px; font-weight:bold;
-	font-family: 'frank';
+	font-family: 'DIN Next LT Pro';
 	font-weight:100;
 	letter-spacing: 3px;
 	text-shadow:5px 4px 11px #000;
@@ -26,28 +26,28 @@
 	font-size:100px;
 	font-weight:100;
 	text-shadow:5px 4px 11px #000;
-	font-family: 'Roboto Mono';
+	font-family: 'DIN Next LT Pro';
 }
 .jumbotron h1.HackFinalCountdown {
 	font-weight:100;
 	text-shadow:5px 4px 11px #000;
 	font-size:150px;
 	display:none;
-	font-family: 'Roboto Mono';
+	font-family: 'DIN Next LT Pro';
 }
 
 
  h1.HackCountdown {
 	font-size:100px;
 	font-weight:100;
-	font-family: 'Roboto Mono';
+	font-family: 'DIN Next LT Pro';
 	margin-top:0px;
 }
  h1.HackFinalCountdown {
 	font-weight:100;
 	font-size:150px;
 	display:none;
-	font-family: 'Roboto Mono';
+	font-family: 'DIN Next LT Pro';
 	margin-top:0px;
 }
 
