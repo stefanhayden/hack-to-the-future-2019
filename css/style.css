@@ -5,7 +5,7 @@
 	
 }
 
-.p {
+.jumbotron {
 	background:#FFF url('/img/httf_2018-lp_hero.jpg') center 50px repeat-x;
 	background-size: auto 466px;
 	color:#fff;
@@ -22,13 +22,13 @@ p.dates {
 
 }
 
-.p h1.HackCountdown {
+.jumbotron h1.HackCountdown {
 	font-size:100px;
 	font-weight:200;
 	text-shadow:5px 4px 11px #000;
 	font-family: 'lato';
 }
-.p h1.HackFinalCountdown {
+.jumbotron h1.HackFinalCountdown {
 	font-weight:100;
 	text-shadow:5px 4px 11px #000;
 	font-size:150px;
