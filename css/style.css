@@ -2,7 +2,7 @@
 .btn-primary {
 	background-color: red;
 	border-color: red;
-	letter-spacing: 5px;
+	
 }
 
 .jumbotron {
@@ -10,6 +10,7 @@
 	background-size: auto 466px;
 	color:#fff;
 	font-family: 'frank';
+	letter-spacing: 5px;
 }
 
 .jumbotron p.dates {
