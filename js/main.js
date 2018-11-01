@@ -55,7 +55,7 @@ $(function(){
 	if($(".HackCountdown").length) {
 		var hackStartTime;
 
-		if(document.location.href.indexOf("?test") == -1) { 
+		if(document.location.href.indexOf("?short") == -1) { 
 			hackStartTime = $(".HackCountdown").data("time")
 		} else {
 			hackStartTime = (moment().valueOf() + 15000); 
@@ -139,7 +139,7 @@ $(function(){
 	if($(".HackFinalCountdown").length) {
 		var hackEndTime;
 
-		if(document.location.href.indexOf("?test") == -1) {
+		if(document.location.href.indexOf("?short") == -1) {
 			hackEndTime = $(".HackFinalCountdown").data("time");
 		} else {
 			hackEndTime = (moment().valueOf() ) + 86460000;
