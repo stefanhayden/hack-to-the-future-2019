@@ -58,7 +58,7 @@ $(function(){
 		if(document.location.href.indexOf("?test") == -1) { 
 			hackStartTime = $(".HackCountdown").data("time")
 		} else {
-			hackStartTime = (moment().valueOf() + 60000); 
+			hackStartTime = (moment().valueOf() + 15000); 
 		}
 
 		var toHackStart = new Countdown(hackStartTime, function(duration){ 
