@@ -50,16 +50,14 @@ var Countdown = (function(moment){
 })(moment);
 
 
-$(function(){	
-
+function start(durration) {
+	$('.clickToStart').hide();
 	if($(".HackCountdown").length) {
 		var hackStartTime;
 
-		if(document.location.href.indexOf("?short") == -1) { 
-			hackStartTime = $(".HackCountdown").data("time")
-		} else {
-			hackStartTime = (moment().valueOf() + 16000); 
-		}
+
+		hackStartTime = (moment().valueOf() + 11000); 
+
 
 		var toHackStart = new Countdown(hackStartTime, function(duration){ 
 
@@ -81,9 +79,9 @@ $(function(){
 			else if(duration.hours() < 10) { text += "0"+duration.hours() + ":"; }
 			else if(duration.hours() >= 10) { text += duration.hours() + ":"; }
 
-			if(duration.minutes() == 0) { text += "00:"; }
+			/* if(duration.minutes() == 0) { text += "00:"; }
 			else if(duration.minutes() < 10) { text += "0"+duration.minutes() + ":"; }
-			else if(duration.minutes() >= 10) { text += duration.minutes() + ":"; }
+			else if(duration.minutes() >= 10) { text += duration.minutes() + ":"; } */
 
 			if(duration.seconds() === 0) {  text += "00"; } 
 			else if (duration.seconds() < 10) { text += "0"+duration.seconds(); } 
@@ -131,7 +129,19 @@ $(function(){
 		});
 		$(".HackCountdown").show();
 	}
+}
+window.start = start
 
+var hasStarted = false;
+$(function(){
+	
+ $('body').on('click', function() {
+ 	if (hasStarted === false) {
+   start();
+   hasStarted = true;
+  }
+ 
+ })
 });
  
 $(function(){	
