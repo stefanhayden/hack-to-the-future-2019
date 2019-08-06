@@ -149,13 +149,10 @@ $(function(){
 	if($(".HackFinalCountdown").length) {
 		var hackEndTime;
 
-		if(document.location.href.indexOf("?short") == -1) {
-			hackEndTime = $(".HackFinalCountdown").data("time");
-		} else {
-			hackEndTime = (moment().valueOf() ) + 86460000 - 44000;
-		}
+		hackEndTime = (moment().valueOf() ) + 86460000 - 48000;
 
 		var toHackEnd = new Countdown(hackEndTime, function(duration){
+
 			if (!startFinalCountDown) return; // don't run unless it's time to start
 
 			var text = "";
